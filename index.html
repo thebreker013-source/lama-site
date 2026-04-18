@@ -1,79 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Love Form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Form ❤️</title>
+    <style>
+        body {
+            /* خلفية وردية جميلة */
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+        }
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial;
-    background: pink;
-    background-image: url('https://i.imgur.com/8Qf6h6F.png');
-    background-size: cover;
-}
+        .box {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 320px;
+        }
 
-.top-text {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 20px;
-    color: #a1005b;
-}
+        h2 {
+            text-align: center;
+            color: #d63384;
+            margin-bottom: 20px;
+        }
 
-.container {
-    width: 400px;
-    margin: 100px auto;
-    background: rgba(255,255,255,0.8);
-    padding: 20px;
-    border-radius: 15px;
-}
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #555;
+        }
 
-h2 {
-    text-align: center;
-    color: #ff4da6;
-}
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box; /* عشان ما يطلع برا الإطار */
+        }
 
-label {
-    display: block;
-    margin-top: 10px;
-}
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 25px;
+            background-color: #d63384;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
 
-input, select {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-}
-</style>
-
+        button:hover {
+            background-color: #b02a6c;
+        }
+    </style>
 </head>
 <body>
 
-<div class="top-text">from your love mdmd</div>
+    <div class="box">
+        <h2>Love Form ❤️</h2>
+        
+        <form action="https://formspree.io/f/YOUR_UNIQUE_ID_HERE" method="POST">
+            
+            <label>Name:</label>
+            <input type="text" name="name" required placeholder="Enter your name">
 
-<div class="container">
-    <h2>Love Form 💖</h2>
+            <label>Birthdate:</label>
+            <input type="date" name="birthdate" required>
 
-    <label>Name:</label>
-    <input type="text">
+            <label>Phone Number:</label>
+            <input type="tel" name="phone" required placeholder="05xxxxxxxx">
 
-    <label>Birthdate:</label>
-    <input type="date">
+            <label>Gender:</label>
+            <select name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
 
-    <label>Phone Number:</label>
-    <input type="text">
-
-    <label>Gender:</label>
-    <select>
-        <option>Female</option>
-        <option>Female</option>
-        <option>Male</option>
-        <option selected>lama</option>
-    </select>
-
-</div>
+            <button type="submit">Send ❤️</button>
+        </form>
+    </div>
 
 </body>
 </html>
