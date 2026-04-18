@@ -2,45 +2,77 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Gender Select</title>
+<title>Love Form</title>
+
 <style>
-    body {
-        font-family: Arial;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        background: #111;
-    }
+body {
+    margin: 0;
+    font-family: Arial;
+    background: pink;
+    background-image: url('https://i.imgur.com/8Qf6h6F.png');
+    background-size: cover;
+}
 
-    .box {
-        background: #eee;
-        padding: 20px;
-        border-radius: 8px;
-        width: 200px;
-    }
+.top-text {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 20px;
+    color: #a1005b;
+}
 
-    h2 {
-        margin-bottom: 10px;
-    }
+.container {
+    width: 400px;
+    margin: 100px auto;
+    background: rgba(255,255,255,0.8);
+    padding: 20px;
+    border-radius: 15px;
+}
 
-    select {
-        width: 100%;
-        padding: 10px;
-        font-size: 16px;
-    }
+h2 {
+    text-align: center;
+    color: #ff4da6;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
 </style>
+
 </head>
 <body>
 
-<div class="box">
-    <h2>Gender:</h2>
+<div class="top-text">from your love mdmd</div>
+
+<div class="container">
+    <h2>Love Form 💖</h2>
+
+    <label>Name:</label>
+    <input type="text">
+
+    <label>Birthdate:</label>
+    <input type="date">
+
+    <label>Phone Number:</label>
+    <input type="text">
+
+    <label>Gender:</label>
     <select>
         <option>Female</option>
         <option>Female</option>
         <option>Male</option>
         <option selected>lama</option>
     </select>
+
 </div>
 
 </body>
