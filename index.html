@@ -1,95 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>From your love mdmd ❤️</title>
-    <style>
-        body {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
-            height: 100vh;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .box {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            width: 320px;
-        }
-
-        h2 {
-            text-align: center;
-            color: #d63384;
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-top: 15px;
-            font-weight: bold;
-            color: #555;
-        }
-
-        input, select {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-sizing: border-box;
-        }
-
-        button {
-            width: 100%;
-            padding: 12px;
-            margin-top: 25px;
-            background-color: #d63384;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-
-        button:hover {
-            background-color: #b02a6c;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="box">
-        <h2>From your love mdmd ❤️</h2>
-        
-        <form action="https://formspree.io/f/mdayzadl" method="POST">
-            
-            <label>Name:</label>
-            <input type="text" name="name" required placeholder="Enter your name">
-
-            <label>Birthdate:</label>
-            <input type="date" name="birthdate" required>
-
-            <label>Phone Number:</label>
-            <input type="tel" name="phone" required placeholder="05xxxxxxxx">
-
-            <label>Gender:</label>
-            <select name="gender">
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="LAMA">LAMA</option>
-            </select>
-
-            <button type="submit">Send ❤️</button>
-        </form>
-    </div>
-
-</body>
-</html>
+name: lint_python
+on: [pull_request, push]
+jobs:
+  lint_python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - run: pip install bandit black codespell flake8 isort mypy pytest pyupgrade safety
+      - run: bandit -r . || true
+      - run: black --check . || true
+      - run: codespell --ignore-words-list="followings" --quiet-level=2
+      - run: flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+      - run: isort --check-only --profile black . || true
+      - run: pip install -r requirements.txt
+      - run: mypy --ignore-missing-imports .
+      - run: pytest . || true
+      - run: pytest --doctest-modules . || true
+      - run: shopt -s globstar && pyupgrade --py36-plus **/*.py || true
+      - run: safety check
